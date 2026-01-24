@@ -1,14 +1,21 @@
 package com.serenitydojo.model;
 
 public class Feeder {
-    public String feeds(String animal, boolean isPremium) {
-        if (animal.equals("Cat")) {
-            return (isPremium) ? "Salmon" : "Tuna";
-        } else if (animal.equals("Dog")) {
-            return "Dog Food";
+
+    public FoodType feeds(String animal, boolean isPremium) {
+
+        if ("Cat".equals(animal)) {
+            return isPremium ? FoodType.SALMON : FoodType.TUNA;
         }
 
-        return "Cabbage";
+        if ("Dog".equals(animal)) {
+            return isPremium ? FoodType.DELUXE_DOG_FOOD : FoodType.DOG_FOOD;
+        }
 
+        if ("Hamster".equals(animal)) {
+            return FoodType.CABBAGE;
+        }
+
+        return FoodType.UNKNOWN;
     }
 }
